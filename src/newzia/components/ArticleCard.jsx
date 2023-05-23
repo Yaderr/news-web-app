@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { Link } from "react-router-dom"
+import Logo from '../../assets/logo.png'
 
 const opts = {
     isSaved: false,
@@ -17,7 +18,7 @@ export const ArticleCard = ({ article, articleOpts = opts}) => {
 
             </div>
             <div className="w-[50%] md:w-[35%] bg-cover bg-center rounded-[20px] md:rounded-[30px] bg-blue-vogue/40">
-                <img className="w-[100%] h-[100%] object-cover rounded-[20px] md:rounded-[30px]" src={article.urlToImage ?? '../../src/assets/logo.png'} onError={({currentTarget}) => currentTarget.src = '../../src/assets/logo.png'} alt="" />
+                <img className="w-[100%] h-[100%] object-cover rounded-[20px] md:rounded-[30px]" src={article.urlToImage ?? '../../src/assets/logo.png'} onError={({currentTarget}) => currentTarget.src = Logo} alt="" />
             </div>
             
             <div className="w-full ml-[15px] select-none">
