@@ -25,7 +25,7 @@ export const NewsCarousel = ({ articles }) => {
             <div className="h-[372px] mt-5">
             <Carousel slide={false} className="" theme={carouselTheme}>
                 {
-                    articles.map(art => (
+                    articles.slice(0,10).map(art => (
                         <CarouselItem key={art.publishedAt} article={art} />
                     ))
                 }

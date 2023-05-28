@@ -8,7 +8,7 @@ export const ArticleList = ({ articles }) => {
             <div className="mt-5 space-y-5">
                 {
                     articles.map((article) => (
-                        <div key={article.publishedAt} className="inline-block md:mr-5">
+                        <div key={`${article.publishedAt}+${article.author}`} className="inline-block md:mr-5">
                             <ArticleCard article={ article } />
                         </div>
                     ))

@@ -20,7 +20,7 @@ export const NavBar = () => {
 
     return (
         <>
-            <nav className="backdrop-blur bg-white/80 supports-backdrop-blur:bg-white/100 shadow-lg w-full bottom-0 fixed sm:relative">
+            <nav className="backdrop-blur bg-white/80 supports-backdrop-blur:bg-white/100 shadow-lg w-full bottom-0 fixed sm:relative z-50">
                 <div className="px-[30px] lg:px-0 flex items-center justify-center max-w-full sm:justify-between sm:max-w-[864px] xl:max-w-[1200px] h-[90px] m-auto"> 
                     <div className="hidden sm:block">
                         <Link to="/" >

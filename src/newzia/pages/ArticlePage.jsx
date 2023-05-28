@@ -17,6 +17,7 @@ export const ArticlePage = () => {
                 <TopicsTags tags={[ {name: '#travel'}, {name: '#unesco'}, {name: '#bath'}, {name: '#abbey'}, {name: '#unitedKingdom'}, {name: '#tourism'} ]} />
                 <Comments comments={ comments } />
                 <InputComment />
+                {/* TODO: <LikeButton /> */}
             </ContainerLayoult>
             <ScrollRestoration />
         </>
