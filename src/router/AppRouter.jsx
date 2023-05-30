@@ -6,12 +6,19 @@ import { NewziaRoutes } from "../newzia/router/NewziaRoutes"
 import { ArticlePage } from "../newzia/pages"
 import { useCheckAuth } from "../hooks"
 import logo from '../assets/newzia-logo.svg'
+import { useEffect } from "react"
 
 
 export const AppRouter = () => {
 
-    const { status, isSetUp } = useCheckAuth()
+    useEffect(() => {
+        
+        console.log('I fire...');
+       
+    }, [])
 
+    const { status, isSetUp } = useCheckAuth()
+    
     if(status === 'checking' || !isSetUp) {
         return (
             <>

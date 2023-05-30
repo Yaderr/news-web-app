@@ -17,7 +17,7 @@ export const SectionHeader = ({ country, city, temp, weather }) => {
                         <span className="text-[0.6rem] sm:text-xs">{city}, {country}</span>
                     </div>
                     <div>
-                        <img className="w-[50px] h-[50px] sm:h-[60px] sm:w-[60px]" src={`http://openweathermap.org/img/wn/${weather}@2x.png`} alt="" />
+                        <img className="w-[50px] h-[50px] sm:h-[60px] sm:w-[60px]" src={`https://openweathermap.org/img/wn/${weather}@2x.png`} alt="" />
                     </div>
                 </div>
             </div>

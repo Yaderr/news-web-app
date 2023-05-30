@@ -1,5 +1,5 @@
 import { ArticleList, CategoriesTab, NewsCarousel, SectionHeader, TopNabar } from "../components"
-import { articles as dataART, categories } from '../../assets/sample-data/'
+import { categories } from '../../assets/sample-data/'
 import { useSelector } from "react-redux"
 import { useFetchClimate, useNewsCategorySelector } from "../../hooks/"
 import { SectionHeaderLoader } from "../loaders/home/SectionHeaderLoader"
@@ -9,9 +9,9 @@ import { ArticleListLoader } from "../loaders/home/ArticleListLoader"
 
 export const HomePage = () => {
 
-    const { selectedCategory } = useSelector(state => state.config)
-    const { selectCategory, isLoading, articles, category } = useNewsCategorySelector(selectedCategory)
-    const { climateState } = useFetchClimate()
+    const { selectedCategory, openwConfig } = useSelector(state => state.config)
+    const { selectCategory, isLoading, articles } = useNewsCategorySelector(selectedCategory)
+    const { climateState } = useFetchClimate(openwConfig)
     
     return (
         <>

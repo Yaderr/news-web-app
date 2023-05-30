@@ -1,18 +1,24 @@
 import { setUpConfig } from "./configSlice"
 
+const {
+    VITE_IP_API_BASE_URL
+} = import.meta.env
+
 export const startConfig = () => {
     
     return async (dispatch) => {
 
         try {
 
-            const { countryCode, city } = await fetch('http://ip-api.com/json').then(res => res.json())
+            const { country, city } = await fetch(`${VITE_IP_API_BASE_URL}/json`, {
+                
+            }).then(res => res.json())
 
-            await new Promise(resolve => setTimeout(resolve, 5000))
+            await new Promise(resolve => setTimeout(resolve, 10000))
 
             const config = {
                 isSetUp: true,
-                country: countryCode,
+                country: 'US', //country,
                 language: navigator.languages[1],
                 selectedCategory: 0,
                 openwConfig: {
