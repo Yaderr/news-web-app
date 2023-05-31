@@ -1,6 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { newsApi } from "./apis";
-import { configSlice, authSlice } from "./slices";
+import { configSlice } from "./config";
+import { authSlice } from "./auth";
+
 
 
 export const store = configureStore({

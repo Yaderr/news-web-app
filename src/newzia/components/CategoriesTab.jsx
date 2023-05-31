@@ -8,8 +8,7 @@ const Category = ({ category, isSelected, index, selectCategory }) => {
     return (
         <a className={
             `${isSelected && 'bg-blue-vogue text-white'} 
-            py-2 px-5 text-sm text-blue-vogue hover:bg-blue-vogue/80
-            hover:text-white rounded-full font-medium md:text-base cursor-pointer`
+            py-2 px-5 text-sm text-blue-vogue rounded-full font-medium md:text-base cursor-pointer`
         } onClick={() => selectCategory(index)}>
             { category.name }
         </a>
