@@ -40,7 +40,6 @@ export const ArticleListLoader = () => {
                 <ArticleCardLoader />
                 <ArticleCardLoader />
                 <ArticleCardLoader />
-
             </div>
         </ContainerLayoult>
     )

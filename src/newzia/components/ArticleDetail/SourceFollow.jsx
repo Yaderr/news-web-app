@@ -1,4 +1,6 @@
 import { PlusIcon } from '@heroicons/react/24/solid'
+import Logo from '../../../assets/ISOTIPO.png'
+
 export const SourceFollow = ({ source }) => {
     // TODO: add source imag, fix image-sorce name
 
@@ -8,7 +10,7 @@ export const SourceFollow = ({ source }) => {
         <div className="mt-5 flex items-center justify-between md:justify-start md:space-x-10">
             <a href='/source/123' className="flex space-x-2 items-center">
                 <div>
-                    <img className="w-[45px] h-[45px] rounded-full md:h-[50px] md:w-[50px]" src={`./icons/sources/${source?.id ?? userName}.png`} alt="" />
+                    <img className="w-[45px] h-[45px] rounded-full md:h-[50px] md:w-[50px]" src={`./icons/sources/${source?.id ?? userName}.png`} onError={({currentTarget}) => currentTarget.src = Logo} alt="" />
                 </div>
                 <div className='flex-col items-center space-y-1'>
                     <h4 className="text-base font-bold text-blue-vogue leading-none">{source.name}</h4>

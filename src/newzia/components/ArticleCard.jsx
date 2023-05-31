@@ -15,7 +15,7 @@ export const ArticleCard = ({ article, articleOpts = opts}) => {
 
     return (
         <div className="flex px-5 py-4 w-full h-[135px] md:w-[500px] md:h-[155px] bg-athens-gray rounded-[30px] md:rounded-[40px]">
-            <div className="w-[50%] md:w-[35%] bg-cover bg-center rounded-[20px] md:rounded-[30px] bg-blue-vogue/40">
+            <div className="w-[50%] md:w-[35%] bg-cover bg-center rounded-[20px] md:rounded-[30px] bg-gray-300">
                 <img loading="lazy" className="w-[100%] h-[100%] object-cover rounded-[20px] md:rounded-[30px]" src={article.urlToImage ?? '../../src/assets/logo.png'} onError={({currentTarget}) => currentTarget.src = Logo} alt="" />
             </div>
             

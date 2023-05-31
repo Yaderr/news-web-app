@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react"
 import { getTimeAgo } from "../../../utils/timeAgo"
-
+import Logo from '../../../assets/ISOTIPO.png'
   
 export const CarouselItem = ({ article }) => {
 
@@ -8,10 +8,10 @@ export const CarouselItem = ({ article }) => {
     const userName = useMemo(() => String(article.source.name).toLocaleLowerCase().replaceAll(' ', '_'), [article])
 
     return (
-        <div className="h-full w-full bg-cover bg-center rounded-[30px] border-2 border-gray-200" style={{backgroundImage: `url(${article.urlToImage})`}}>
+        <div className="h-full w-full bg-cover bg-center rounded-[30px] border-2 border-gray-200" style={{backgroundImage: `url('${article.urlToImage}')`}}>
             <div className="flex flex-col justify-between w-full h-full bg-gradient-to-t from-blue-vogue backdrop rounded-[30px]">
                 <div className="mx-[30px] sm:mx-[70px] mt-[20px] flex justify-end">
-                    {/* <button className="p-2 bg-athens-gray/50 hover:bg-athens-gray rounded-md outline-none" onClick={() => setIsSaved(!isSaved)}>
+                    <button className="p-2 bg-athens-gray/50 hover:bg-athens-gray rounded-md outline-none" onClick={() => setIsSaved(!isSaved)}>
                         {
                             isSaved
                             ? (
@@ -27,7 +27,7 @@ export const CarouselItem = ({ article }) => {
                                 </svg>
                             )
                         }
-                    </button> */}
+                    </button>
                 </div>
                 <div className="mx-[30px] sm:mx-[70px] mb-[44px] ">
                     <span className="inline-block px-3 py-2 bg-lynch rounded-full font-medium text-white text-xs mb-[10px]">Destacado</span>
@@ -36,7 +36,7 @@ export const CarouselItem = ({ article }) => {
                     </a>
                     <div className="flex items-center mt-[10px] justify-between w-full">
                         <a href="/news/source/123" className="flex items-center space-x-2 min-h-[30px]">
-                            <img className="w-[30px] h-[30px] rounded-full" src={`./icons/sources/${article.source?.id ?? userName}.png`} alt="" />
+                            <img className="w-[30px] h-[30px] rounded-full" src={`./icons/sources/${article.source?.id ?? userName}.png`} onError={({currentTarget}) => currentTarget.src = Logo} alt="" />
                             <strong className="text-white font-semibold	text-sm">{article.source.name}</strong>
                         </a>
                         <div>

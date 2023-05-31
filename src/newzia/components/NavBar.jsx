@@ -20,8 +20,8 @@ export const NavBar = () => {
 
     return (
         <>
-            <nav className="backdrop-blur bg-white/80 supports-backdrop-blur:bg-white/100 shadow-lg w-full bottom-0 fixed sm:relative z-50">
-                <div className="px-[30px] lg:px-0 flex items-center justify-center max-w-full sm:justify-between sm:max-w-[864px] xl:max-w-[1200px] h-[90px] m-auto"> 
+            <nav className="backdrop-blur bg-white/80 supports-backdrop-blur:bg-white/100 shadow-lg w-full bottom-0 fixed sm:relative z-[900]">
+                <div className="px-[30px] lg:px-0 flex items-center justify-center max-w-full sm:justify-between sm:max-w-[864px] xl:max-w-[1200px] sm:h-[90px] h-[70px] m-auto"> 
                     <div className="hidden sm:block">
                         <Link to="/" >
                             <img className="h-[40px]" src={logo} alt="newzia logo" />
@@ -31,26 +31,26 @@ export const NavBar = () => {
                         <ul className="flex space-x-10 sm:space-x-5">
                             <li>
                                 <NavLink to="/" className="transition-colors duration-500 ease-out hover:bg-athens-gray py-2 px-2 flex rounded-[10px]" alt="home">
-                                    <HomeIconOutline className="h-[34px] w-[34px] text-blue-vogue outline-icon" />
-                                    <HomeIconSolid className="h-[34px] w-[34px] text-red-ribbon solid-icon" />
+                                    <HomeIconOutline className="h-[30px] w-[30px] text-blue-vogue outline-icon" />
+                                    <HomeIconSolid className="h-[30px] w-[30px] text-red-ribbon solid-icon" />
                                 </NavLink>
                             </li>
                             <li>
                                 <NavLink to="/explore" className="transition-colors duration-500 ease-out hover:bg-athens-gray py-2 px-2 flex rounded-[10px]" alt="explorar">
-                                    <GlobeAltIconOutline className="h-[34px] w-[34px] text-blue-vogue outline-icon" />
-                                    <GlobeAltIconSolid className="h-[34px] w-[34px] text-red-ribbon solid-icon" />
+                                    <GlobeAltIconOutline className="h-[30px] w-[30px] text-blue-vogue outline-icon" />
+                                    <GlobeAltIconSolid className="h-[30px] w-[30px] text-red-ribbon solid-icon" />
                                 </NavLink>
                             </li>
                             <li>
                                 <NavLink to="/saved" className="transition-colors duration-500 ease-out hover:bg-athens-gray py-2 px-2 flex rounded-[10px]" alt="guardados">
-                                    <BookmarkIconOutline className="h-[34px] w-[34px] text-blue-vogue outline-icon" />
-                                    <BookmarkIconSolid className="h-[34px] w-[34px] text-red-ribbon solid-icon" />
+                                    <BookmarkIconOutline className="h-[30px] w-[30px] text-blue-vogue outline-icon" />
+                                    <BookmarkIconSolid className="h-[30px] w-[30px] text-red-ribbon solid-icon" />
                                 </NavLink>
                             </li>
                             <li>
                                 <NavLink to="/settings" className="transition-colors duration-500 ease-out hover:bg-athens-gray py-2 px-2 flex rounded-[10px]" alt="ajustes">
-                                    <Cog6ToothIconOutline className="h-[34px] w-[34px] text-blue-vogue outline-icon" />
-                                    <Cog6ToothIconSolid className="h-[34px] w-[34px] text-red-ribbon solid-icon" />
+                                    <Cog6ToothIconOutline className="h-[30px] w-[30px] text-blue-vogue outline-icon" />
+                                    <Cog6ToothIconSolid className="h-[30px] w-[30px] text-red-ribbon solid-icon" />
                                 </NavLink>
                             </li>
                         </ul>

@@ -27,7 +27,7 @@ export const newsApi = createApi({
                 url: '/top-headlines',
                 params:{
                     ...params,
-                    pageSize: 100
+                    pageSize: 30
                 }
             })
         }) 
