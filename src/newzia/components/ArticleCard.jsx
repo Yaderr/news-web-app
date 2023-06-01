@@ -29,7 +29,7 @@ export const ArticleCard = ({ article, articleOpts = opts}) => {
                             { articleOpts.readTime } { articleOpts.redTa } 
                             <span className="hidden md:inline"> de lectura</span>
                         </span> */}
-                        <span className="font-semibold text-blue-vogue">
+                        <span className="font-semibold text-blue-vogue hidden md:inline">
                             {article.author ? (<span> &#x2022; {article.author} </span> ):''}
                         </span>
                     </span>

@@ -17,8 +17,6 @@ export const configSlice = createSlice({
             selectedCategory 
         } = JSON.parse(localStorage.getItem('config') ?? '{}')
 
-        
-
         return {
             isSetUp: isSetUp ?? false,
             country: country ?? null,

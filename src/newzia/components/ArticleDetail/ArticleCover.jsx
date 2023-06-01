@@ -35,7 +35,7 @@ export const ArticleCover = ({ articleOpts = opts, metrics = metri, article }) =
                         <button className="p-2 bg-white/40 hover:bg-white/70 rounded-full outline-none">
                             <ShareIcon className="w-[24px] h-[24px] text-white" />
                         </button>
-                        <SaveArticleButton className='p-2 bg-white/40 hover:bg-white/70 rounded-full outline-none w-[40px] h-[40px]' article={ article } color='white' />
+                        <SaveArticleButton className='p-2 bg-white/40 hover:bg-white/70 rounded-full outline-none w-[40px] h-[40px]' article={ article } color='stroke-white' />
                     </div>
                 </div>
                 <div className="py-[30px] md:py-[40px] space-y-5">

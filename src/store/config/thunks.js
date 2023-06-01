@@ -23,7 +23,7 @@ export const startConfig = () => {
                 selectedCategory: 0,
                 openwConfig: {
                     units: 'metric',
-                    city
+                    city: city ?? 'miami'
                 }
             }
             
@@ -36,7 +36,6 @@ export const startConfig = () => {
             const config = {
                 isSetUp: true,
                 country: 'US',
-                city: 'Miami',
                 language: navigator.languages[1],
                 selectedCategory: 0,
                 openwConfig: {
