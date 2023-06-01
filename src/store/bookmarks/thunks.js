@@ -4,7 +4,7 @@ export const startSaveNewArticle = (article) => {
 
     return ( dispatch, getState ) => {
 
-        const toSaveArticle = {...article}
+        const toSaveArticle = { ...article }
         delete toSaveArticle.isSaved
         
         dispatch(addNewArticle(toSaveArticle))
@@ -18,8 +18,10 @@ export const startRemoveNewArticle = (article) => {
 
     return ( dispatch, getState ) => {
 
-        dispatch(deleteArticle(article))
+        const toDeleteArticle = { ...article }
+        delete toDeleteArticle.isSaved
 
+        dispatch(deleteArticle(toDeleteArticle))
         const { articles } = getState().bookmarks
 
         localStorage.setItem('bookmarks', JSON.stringify({articles}))

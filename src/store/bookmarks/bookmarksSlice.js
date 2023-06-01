@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, current } from '@reduxjs/toolkit';
 import { getSavedFromLocalStorage } from '../apis';
 
 export const bookmarksSlice = createSlice({
@@ -16,7 +16,7 @@ export const bookmarksSlice = createSlice({
 
         },
         deleteArticle: (state, action) => {
-            state.articles = state.articles.filter(article => JSON.stringify(article) !== JSON.stringify(action.payload))
+            state.articles = current(state.articles).filter(article => JSON.stringify(article) !== JSON.stringify(action.payload))
         }
     }
 });
