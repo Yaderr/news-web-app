@@ -1,4 +1,4 @@
-import { setUpConfig } from "./configSlice"
+import { setConfig } from "./configSlice"
 
 const {
     VITE_IP_API_BASE_URL
@@ -27,7 +27,7 @@ export const startConfig = () => {
                 }
             }
             
-            dispatch(setUpConfig(config))
+            dispatch(setConfig(config))
             
         } catch (error) {
 
@@ -45,7 +45,7 @@ export const startConfig = () => {
                 }
             }
 
-            dispatch(setUpConfig(config))
+            dispatch(setConfig(config))
         } 
     }
 }

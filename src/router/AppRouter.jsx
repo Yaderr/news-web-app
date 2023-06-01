@@ -10,13 +10,7 @@ import { useEffect } from "react"
 
 
 export const AppRouter = () => {
-
-    useEffect(() => {
-        
-        console.log('I fire...');
-       
-    }, [])
-
+    
     const { status, isSetUp } = useCheckAuth()
     
     if(status === 'checking' || !isSetUp) {

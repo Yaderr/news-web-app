@@ -32,7 +32,7 @@ export const configSlice = createSlice({
             state.selectedCategory = action.payload
         },
 
-        setUpConfig: (state, action) => {
+        setConfig: (state, action) => {
             
             const { isSetUp, country, language, openwConfig, selectedCategory } = action.payload
 
@@ -47,4 +47,4 @@ export const configSlice = createSlice({
     }
 });
 
-export const { switchCategory, setUpConfig } = configSlice.actions;
+export const { switchCategory, setConfig } = configSlice.actions;

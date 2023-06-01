@@ -14,6 +14,14 @@ const reqHeaders = VITE_PRX_API_URL === 'https://delightful-stockings-dog.cyclic
     'X-Api-Key': VITE_NEWS_API_KEY
 }
 
+export const getSavedFromLocalStorage = () => {
+    const { 
+        articles
+    } = JSON.parse(localStorage.getItem('bookmarks') ?? '{}')
+
+    return articles
+}
+
 
 export const newsApi = createApi({
     reducerPath: 'news',
@@ -29,7 +37,20 @@ export const newsApi = createApi({
                     ...params,
                     pageSize: 30
                 }
-            })
+            }),
+            transformResponse: async (response) => {
+
+                const favorites =  getSavedFromLocalStorage()
+                if(!favorites) return response
+
+                response.articles = response.articles.map((article) => {
+                    const is = favorites.some((favorite) => JSON.stringify(article) === JSON.stringify(favorite))
+                    if(is) return { ...article, isSaved: true }
+                    return {...article, isSaved: false}
+                })
+
+                return response
+            }
         }) 
     })
 })

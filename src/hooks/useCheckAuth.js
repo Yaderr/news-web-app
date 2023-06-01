@@ -11,7 +11,7 @@ export const useCheckAuth = () => {
 
     useEffect(() => {
 
-        //TODO: Check user 
+        //TODO: Check user
         
         if(!isSetUp) {
             dispatch(startConfig())

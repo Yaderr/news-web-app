@@ -10,7 +10,7 @@ export const ArticlePage = () => {
 
     return (
         <>
-            <ArticleCover title={article.title} dateTime={article.publishedAt} img={article.urlToImage} />
+            <ArticleCover article={ article } />
             <ContainerLayoult>
                 <SourceFollow source={ article.source} />
                 <ArticleBody content={ article.content } />
