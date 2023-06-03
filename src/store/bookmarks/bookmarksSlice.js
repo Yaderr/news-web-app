@@ -13,10 +13,12 @@ export const bookmarksSlice = createSlice({
     },
     reducers: {
         addNewArticle: (state, action) => {
+
             state.articles.push(action.payload)
-            state.articlesSaved.push(action.payload)
+            state.articlesSaved.push({...action.payload, isSaved: true})
         },
         deleteArticle: (state, action) => {
+            
             state.articles = current(state.articles).filter(article => JSON.stringify(article) !== JSON.stringify(action.payload))
             state.articlesSaved = current(state.articlesSaved).filter(article => {
                 const compareArticle = {...article}
