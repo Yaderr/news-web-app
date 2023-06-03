@@ -7,18 +7,29 @@ export const bookmarksSlice = createSlice({
         const articles = getSavedFromLocalStorage() ?? []
 
         return {
-            articles
+            articles,
+            articlesSaved: articles.map(article => ({...article, isSaved: true}))
         }
     },
     reducers: {
         addNewArticle: (state, action) => {
             state.articles.push(action.payload)
-
+            state.articlesSaved.push(action.payload)
         },
         deleteArticle: (state, action) => {
             state.articles = current(state.articles).filter(article => JSON.stringify(article) !== JSON.stringify(action.payload))
+            state.articlesSaved = current(state.articlesSaved).filter(article => {
+                const compareArticle = {...article}
+                delete compareArticle.isSaved
+                return JSON.stringify(compareArticle) !== JSON.stringify(action.payload)
+            }
+            )
+        },
+        deleteAll: (state) => {
+            state.articles = []
+            state.articlesSaved = []
         }
     }
 });
 
-export const { addNewArticle, deleteArticle } = bookmarksSlice.actions;
+export const { addNewArticle, deleteArticle, deleteAll } = bookmarksSlice.actions;

@@ -1,4 +1,4 @@
-import { addNewArticle, deleteArticle } from "./bookmarksSlice"
+import { addNewArticle, deleteAll, deleteArticle } from "./bookmarksSlice"
 
 export const startSaveNewArticle = (article) => {
 
@@ -25,5 +25,13 @@ export const startRemoveNewArticle = (article) => {
         const { articles } = getState().bookmarks
 
         localStorage.setItem('bookmarks', JSON.stringify({articles}))
+    }
+}
+
+export const startDeleteAllArticles = () => {
+    
+    return (dispatch) => {
+        localStorage.removeItem('bookmarks')
+        dispatch(deleteAll())
     }
 }

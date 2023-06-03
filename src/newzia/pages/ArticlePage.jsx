@@ -13,8 +13,8 @@ export const ArticlePage = () => {
             <ArticleCover article={ article } />
             <ContainerLayoult>
                 <SourceFollow source={ article.source} />
-                <ArticleBody content={ article.content } />
-                <TopicsTags tags={[ {name: '#travel'}, {name: '#unesco'}, {name: '#bath'}, {name: '#abbey'}, {name: '#unitedKingdom'}, {name: '#tourism'} ]} />
+                <ArticleBody content={ article.content } url={ article.url } />
+                <TopicsTags tags={[...article.title.toLowerCase().matchAll(/\b(?:\w|-)+\b/g)].map(a=> ({ name: a[0]})).slice(0,5)} />
                 <Comments comments={ comments } />
                 <InputComment />
                 {/* TODO: <LikeButton /> */}
