@@ -19,12 +19,18 @@ const IsNotSaved = ({ color }) => {
         </svg>
     )
 }
-export const SaveArticleButton = ({ className, color='stroke-blue-vogue', article, isSaved, clickRemove }) => {
+export const SaveArticleButton = ({ className, color='stroke-blue-vogue', article, }) => {
 
-    
+    const [isSaved, setIsSaved] = useState(article.isSaved)
+    const dispatch = useDispatch()
+
+    const OnSaveClick = () => {
+        isSaved ? dispatch(startRemoveNewArticle(article)) : dispatch(startSaveNewArticle(article))
+        setIsSaved(!isSaved)
+    }
 
     return (
-        <button className={className} onClick={clickRemove}>
+        <button className={className} onClick={OnSaveClick}>
             {
                 isSaved
                 ? <IsSavedIcon />
