@@ -1,9 +1,12 @@
+import { GeneralSettingsPage } from "./settings/GeneralSettingsPage"
 
 export const SettingsPage = () => {
 
     return (
         <>
-            <h1>Ajustes</h1>
+            <div className="mt-5">
+                <GeneralSettingsPage />
+            </div>
         </>
     )
 }

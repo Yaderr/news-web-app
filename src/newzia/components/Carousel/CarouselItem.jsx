@@ -14,7 +14,7 @@ export const CarouselItem = ({ article }) => {
                     <SaveArticleButton className='p-2 bg-white/40 hover:bg-white/70 rounded-md outline-none w-[40px] h-[40px]' article={article} />
                 </div>
                 <div className="mx-[30px] sm:mx-[70px] mb-[44px] ">
-                    <span className="inline-block px-3 py-2 bg-lynch rounded-full font-medium text-white text-xs mb-[10px]">Destacado</span>
+                    {/* <span className="inline-block px-3 py-2 bg-lynch rounded-full font-medium text-white text-xs mb-[10px]">Destacado</span> */}
                     <a href="/news/article" title={article.title} className="max-h-[200px] line-clamp-6 text-white text-sm font-bold md:text-2xl sm:w-[60%] hover:underline">
                         {article.title}
                     </a>

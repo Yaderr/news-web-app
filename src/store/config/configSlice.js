@@ -34,13 +34,13 @@ export const configSlice = createSlice({
             
             const { isSetUp, country, language, openwConfig, selectedCategory } = action.payload
 
-            state.selectedCategory = selectedCategory
-            state.openwConfig = openwConfig
-            state.isSetUp = isSetUp
-            state.country = country
-            state.language = language
+            state.selectedCategory = selectedCategory ?? state.selectedCategory
+            state.openwConfig = openwConfig ?? state.openwConfig
+            state.isSetUp = isSetUp ?? state.isSetUp
+            state.country = country ?? state.country
+            state.language = language ?? state.language
 
-            localStorage.setItem('config', JSON.stringify(action.payload))
+            localStorage.setItem('config', JSON.stringify(state))
         }
     }
 });
