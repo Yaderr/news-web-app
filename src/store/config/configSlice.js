@@ -41,6 +41,9 @@ export const configSlice = createSlice({
             state.language = language ?? state.language
 
             localStorage.setItem('config', JSON.stringify(state))
+        },
+        resetConfig: (state) => {
+            state.isSetUp = false
         }
     }
 });

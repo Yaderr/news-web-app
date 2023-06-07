@@ -16,7 +16,7 @@ export const InputCountry = ({ index = 0, countries }) => {
             const config = {
                 country: selectedCountry.code2l
             }
-            
+
             dispatch(setConfig(config))
         }
     }, [selectedCountry])
@@ -35,7 +35,7 @@ export const InputCountry = ({ index = 0, countries }) => {
                 <div className="flex space-x-2 p-2">
                     <Combobox.Label>
                         <div className="w-[42px] h-[42px] bg-gray-200 rounded-xl">
-                            <img className="w-[100%] h-[100%] object-cover rounded-xl" src={`/public/icons/flags/${selectedCountry.code2l}.svg`} alt="" />
+                            <img className="w-[100%] h-[100%] object-cover rounded-xl" src={`./icons/flags/${selectedCountry.code2l.toLowerCase()}.svg`} alt="" />
                         </div>
                     </Combobox.Label>
                     <Combobox.Input displayValue={(country) => country.name} name="user-country" className="border-none bg-transparent text-blue-vogue font-medium w-full rounded-lg focus:ring-0 focus:border-gray-200" onChange={(event) => setQuery(event.target.value)} />
@@ -59,7 +59,7 @@ export const InputCountry = ({ index = 0, countries }) => {
                                 <>
                                     <div className="flex items-center">
                                         <div className="w-[42px] min-w-[42px] h-[42px] bg-gray-200 rounded-xl">
-                                            <img loading="lazy" className="w-[100%] h-[100%] object-cover rounded-xl" src={`/public/icons/flags/${country.code2l}.svg`} alt="" />
+                                            <img loading="lazy" className="w-[100%] h-[100%] object-cover rounded-xl" src={`./icons/flags/${country.code2l.toLowerCase()}.svg`} alt="" />
                                         </div>
                                         <span className="ml-2">
                                             <span className="text-gray-400 mr-2 font-normal">
