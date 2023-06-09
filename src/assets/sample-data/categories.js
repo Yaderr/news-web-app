@@ -9,7 +9,7 @@ export const categories = [
     },
     {
         id: 'entertainment',
-        name: 'entretenimiento'
+        name: 'Entretenimiento'
     },
     {
         id: 'health',

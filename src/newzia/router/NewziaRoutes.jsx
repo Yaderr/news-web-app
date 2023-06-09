@@ -9,7 +9,7 @@ export const NewziaRoutes = () => {
             <NavBar />
             <Routes>
                 <Route path="/" element={ <HomePage />} />
-                <Route path="/explore" element={ <ExplorePage /> } />
+                <Route path="/explore/*" element={ <ExplorePage /> } />
                 <Route path="/saved" element={ <SavedPage /> } />
                 <Route path="/settings" element={ <SettingsPage /> } />
             </Routes>
