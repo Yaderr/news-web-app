@@ -14,13 +14,12 @@ export const startConfig = () => {
                 
             }).then(res => res.json())
 
-            await new Promise(resolve => setTimeout(resolve, 10000))
+            //await new Promise(resolve => setTimeout(resolve, 10000))
 
             const config = {
                 isSetUp: true,
                 country: 'US', //country,
                 language: navigator.languages[1],
-                selectedCategory: 0,
                 openwConfig: {
                     units: 'metric',
                     city: city ?? 'miami'
@@ -37,7 +36,6 @@ export const startConfig = () => {
                 isSetUp: true,
                 country: 'US',
                 language: navigator.languages[1],
-                selectedCategory: 0,
                 openwConfig: {
                     units: 'metric',
                     city: 'Miami'

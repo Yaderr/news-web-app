@@ -34,8 +34,9 @@ export const configSlice = createSlice({
             
             const { isSetUp, country, language, openwConfig, selectedCategory } = action.payload
 
-            state.selectedCategory = selectedCategory ?? state.selectedCategory
-            state.openwConfig = openwConfig ?? state.openwConfig
+            //state.selectedCategory = selectedCategory ?? state.selectedCategory
+            state.openwConfig.city = openwConfig?.city ?? state.openwConfig.city
+            state.openwConfig.units = openwConfig?.units ?? state.openwConfig.units
             state.isSetUp = isSetUp ?? state.isSetUp
             state.country = country ?? state.country
             state.language = language ?? state.language
@@ -44,8 +45,9 @@ export const configSlice = createSlice({
         },
         resetConfig: (state) => {
             state.isSetUp = false
+            localStorage.removeItem('config')
         }
     }
 });
 
-export const { switchCategory, setConfig } = configSlice.actions;
+export const { switchCategory, setConfig, resetConfig } = configSlice.actions;

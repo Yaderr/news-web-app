@@ -1,4 +1,4 @@
-import { useMemo } from "react"
+import { useMemo, useState } from "react"
 import { ContainerLayoult } from "../ContainerLayoult"
 import { InputCountry } from "./InputCountry"
 import { DarkModeButton } from "./DarkModeButton"
@@ -7,10 +7,12 @@ import { useNavigate } from "react-router-dom"
 import { ArrowLeftIcon, ArrowPathIcon } from "@heroicons/react/24/solid"
 import { InputCity } from "./InputCity"
 import countries from '../../../assets/sample-data/countries.json'
+import { resetConfig, setConfig } from "../../../store"
 
 export const PublicSettings = () => {
 
     const { country, language, openwConfig } = useSelector(state => state.config)
+    const [selectedCity, setSelectedCity] = useState(openwConfig.city)
 
     const countryIndex = useMemo(() => {
         const index = countries.findIndex(item => item.code2l === country)
@@ -25,7 +27,17 @@ export const PublicSettings = () => {
     }
 
     const onReset = () => {
-       // dispatch(startDeleteAllArticles())
+        dispatch(resetConfig())
+        window.location.reload()
+    }
+
+    const onSave = () => {
+        dispatch(setConfig({openwConfig: { city: selectedCity}}))
+    }
+
+    const onInputChange = (event) => {
+        console.log('change')
+        setSelectedCity(event.target.value)
     }
   
     return (
@@ -52,10 +64,13 @@ export const PublicSettings = () => {
                     </div>
                 </div>
                 <InputCountry index={countryIndex} countries={countries} />
-                <InputCity openwConfig={openwConfig} />
+                <InputCity onInputChange={onInputChange} selectedCity={selectedCity} />
                 <div>
                     <label htmlFor="user-darkMode" className="text-md font-medium text-blue-vogue block mb-2">Modo oscuro</label>
                     <DarkModeButton />
+                </div>
+                <div>
+                    <button onClick={onSave} disabled={!(selectedCity !== openwConfig.city)} className="w-full p-2 bg-red-ribbon text-white rounded-[20px] px-5 py-4 disabled:bg-athens-gray disabled:text-lynch">Guardar</button>
                 </div>
             </div>
         </ContainerLayoult>
