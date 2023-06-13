@@ -51,9 +51,20 @@ export const newsApi = createApi({
 
                 return response
             }
-        }) 
+        }),
+        
+        getEverything: builder.query({
+            query: (params) => ({
+                url: '/everything',
+                params: {
+                    ...params,
+                    pageSize: 10
+                }
+            })
+
+        })
     })
 })
 
 
-export const { useGetTopHeadlinesQuery } = newsApi
+export const { useGetTopHeadlinesQuery, useLazyGetEverythingQuery } = newsApi

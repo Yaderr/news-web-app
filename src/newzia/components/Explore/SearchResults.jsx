@@ -1,10 +1,19 @@
+import { ArticleList } from "../ArticleList"
 import { ContainerLayoult } from "../ContainerLayoult"
 
-export const SearchResults = ({ query = ''}) => {
+export const SearchResults = ({ results, resultType }) => {
 
-    return (
-        <ContainerLayoult>
-            <h1>Resultados</h1>
-        </ContainerLayoult>
-    )
+
+    switch (resultType) {
+        case 'news':
+            return <ArticleList articles={ results } />
+        case 'source':
+            //TODO: source list
+            break
+        case 'category':
+            //TODO: category list
+            break
+        default:
+            break
+    }
 }

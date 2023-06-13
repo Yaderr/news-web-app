@@ -14,7 +14,6 @@
         return (
             <ContainerLayoult>
                 <div className="mt-5">
-                    {/* Recents */}
                     <h2 className="font-semibold text-blue-vogue">Búsquedas recientes</h2>
                     <div className="space-y-2 mt-5">
                         {
@@ -28,8 +27,6 @@
                             ))
                         }
                     </div>
-
-                    {/* Categories */}
                     <h2 className="font-semibold text-blue-vogue mt-5">Caregorías</h2>
                     <div className="space-y-4">
                         {
@@ -45,7 +42,6 @@
                                         </div>
                                     </div> 
                                 </a>
-                               
                             ))
                         }
                     </div>
