@@ -58,9 +58,13 @@ export const newsApi = createApi({
                 url: '/everything',
                 params: {
                     ...params,
-                    pageSize: 10
+                    pageSize: 10,
+                    sortBy: 'relevancy'
                 }
-            })
+            }),
+            transformResponse: (response) => {
+                return response.articles
+            }
 
         })
     })

@@ -27,9 +27,9 @@ export const InputSerch = () => {
                     </button>
                 </div>
                 <form onSubmit={onSubmitForm}>
-                    <div className="flex mt-5 bg-athens-gray rounded-xl px-5 items-center">
+                    <div className="flex mt-5 bg-athens-gray rounded-[20px] px-5 items-center">
                         <MagnifyingGlassIcon className="h-6 text-blue-vogue" />
-                        <input className="px-3 text-base placeholder:text-xs md:placeholder:text-base text-blue-vogue font-medium py-4 focus:ring-0 border-none bg-transparent w-full" type="text" placeholder="Buscar Artículos, fuentes o categorías" />
+                        <input className="px-3 text-base placeholder:text-xs md:placeholder:text-base text-blue-vogue font-medium py-5 focus:ring-0 border-none bg-transparent w-full" type="text" placeholder="Buscar Artículos, fuentes o categorías" />
                         {/* <button type="button">
                             <AdjustmentsVerticalIcon className="h-7 text-blue-vogue" />
                         </button> */}

@@ -12,10 +12,10 @@ export const useMultiSearch = (searchType = 'news', query) => { // news, source,
             getData: triggerNews
         },
         "source": {
-            getData: () => ({})
+            getData: () => ({ data: [{name: 'cnbc', id: 'cnbc'}, {name: 'cnn', id: 'cnn'}, {name: 'Associated Press', id: 'associated-press'}, {name: 'Reuters', id: 'reuters'}] })
         },
         "category": {
-            getData: () => ({})
+            getData: () => ({ data: [] })
         }
 
     }
