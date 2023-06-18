@@ -15,10 +15,10 @@ const searchTypes = [
         id: 'source',
         name: 'Fuentes'
     },
-    {
-        id: 'category',
-        name: 'Categorías'
-    }
+    // {
+    //     id: 'category',
+    //     name: 'Categorías'
+    // }
 ]
 
 const Loading = () => {
@@ -39,12 +39,14 @@ export const SearchPage = () => {
     const [searchType, setSearchType] = useState(location.hash.split('#')[1] ?? searchTypes[0].id)
     
     const { q='' } = queryString.parse(location.search)
-    const { results, isLoading } = useMultiSearch(searchType, q)
+    const { results, isLoading, setIsLoading } = useMultiSearch(searchType, q)
 
     useEffect(() => {
         if(location.hash.length > 0 && searchType !== location.hash.split('#')[1]) {
+            setIsLoading(true)
             setSearchType(location.hash.split('#')[1] ?? searchTypes[0].id)
         }
+        // console.log(searchType);
     }, [location.hash])
 
     if(q.trim().length <= 0) {
