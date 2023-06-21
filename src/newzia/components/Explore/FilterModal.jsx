@@ -7,6 +7,10 @@ import { setSearch } from "../../../store"
 
 const filters = [
     {
+        id: 'title,description,content',
+        name: 'Todo'
+    },
+    {
         id: 'title',
         name: 'Título'
     },
@@ -50,7 +54,7 @@ const languages = [
 export const FilterModal = ({isOpen, setIsOpen}) => {
 
     const [filterBy, setFilterBy] = useState(filters[0])
-    const [sortBy, setSortBy] = useState(sortOptions[0])
+    const [sortBy, setSortBy] = useState(sortOptions[2])
     const [language, setLanguage] = useState(languages[1])
     
     const dispatch = useDispatch()
