@@ -2,21 +2,30 @@ import { useNavigate } from "react-router-dom"
 import { ContainerLayoult } from "../ContainerLayoult"
 import { MagnifyingGlassIcon, AdjustmentsVerticalIcon, ArrowLeftIcon } from "@heroicons/react/24/outline"
 import { useState } from "react"
-import { Dialog } from "@headlessui/react"
 import { FilterModal } from "./FilterModal"
 
 export const InputSerch = () => {
 
     const navigate = useNavigate()
     const [isOpen, setIsOpen] = useState(false)
+    const [params, setParams] = useState({
+        searchIn: null,
+        language: null,
+        sortBy: null
+    })
    
     const onSubmitForm = (event) => {
 
         event.preventDefault()
         const query = event.target[0].value
         if(query.trim().length <= 0) return
-        navigate(`./search?q=${query}`)
+        navigate({
+            pathname: './search',
+            search: `?q=${query}`
+        })
     }
+
+    
 
     const back = () => {
         navigate(-1)

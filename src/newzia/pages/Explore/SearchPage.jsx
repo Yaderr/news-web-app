@@ -5,6 +5,7 @@ import { SearchResults } from "../../components"
 import { useMultiSearch } from "../../../hooks"
 import { useEffect, useState } from "react"
 import { Spinner } from "flowbite-react"
+import { useSelector } from "react-redux"
 
 const searchTypes = [
     {
@@ -34,12 +35,13 @@ const Loading = () => {
 
 export const SearchPage = () => {
 
+    const { search } = useSelector(state => state.config)
     const location = useLocation()
 
     const [searchType, setSearchType] = useState(location.hash.split('#')[1] ?? searchTypes[0].id)
     
     const { q='' } = queryString.parse(location.search)
-    const { results, isLoading, setIsLoading } = useMultiSearch(searchType, q)
+    const { results, isLoading, setIsLoading } = useMultiSearch(searchType, q, search)
 
     useEffect(() => {
         if(location.hash.length > 0 && searchType !== location.hash.split('#')[1]) {

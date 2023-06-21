@@ -9,10 +9,10 @@ export const SourceCard = ({ source }) => {
             <div className="flex flex-col h-full justify-center">
                 <div className="flex flex-col items-center justify-center space-y-2">
                     <div className="bg-white w-[80px] h-[80px] rounded-full">
-                    <object className="w-[80px] h-[80px] rounded-full" data={`/icons/sources/${source?.id ?? userName}.png`} type="image/png">
+                    {/* <object className="w-[80px] h-[80px] rounded-full" data={`/icons/sources/${source?.id ?? userName}.png`} type="image/png">
                         <img className="w-[80px] h-[80px] rounded-full" src={Logo} alt={source.name} />
-                    </object>
-                        {/* <img className="w-[80px] h-[80px] rounded-full" src={`/icons/sources/${source?.id ?? userName}.png`} alt={source.name} /> */}
+                    </object> */}
+                        <img className="w-[80px] h-[80px] rounded-full" src={`/icons/sources/${source?.id ?? userName}.png`} onError={({currentTarget}) => currentTarget.src = Logo} alt={source.name} />
                     </div>
                     <div className="w-full max-h-[20px] text-center px-4">
                         <span className="text-blue-vogue font-bold line-clamp-2">{ source.name }</span>

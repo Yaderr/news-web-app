@@ -8,8 +8,8 @@ const defaultOpwConfig = {
 export const configSlice = createSlice({
     name: 'config',
     initialState: () => {
-
-        const { 
+        
+        const {
             isSetUp,
             country,
             language,
@@ -22,7 +22,10 @@ export const configSlice = createSlice({
             country: country ?? null,
             language: language ?? navigator.languages[1],
             selectedCategory: selectedCategory ?? 0,
-            openwConfig: openwConfig ?? defaultOpwConfig
+            openwConfig: openwConfig ?? defaultOpwConfig,
+            search: {
+                
+            }
         }
     },
     reducers: {
@@ -33,7 +36,7 @@ export const configSlice = createSlice({
         setConfig: (state, action) => {
             
             const { isSetUp, country, language, openwConfig, selectedCategory } = action.payload
-
+            
             //state.selectedCategory = selectedCategory ?? state.selectedCategory
             state.openwConfig.city = openwConfig?.city ?? state.openwConfig.city
             state.openwConfig.units = openwConfig?.units ?? state.openwConfig.units
@@ -43,6 +46,11 @@ export const configSlice = createSlice({
 
             localStorage.setItem('config', JSON.stringify(state))
         },
+
+        setSearch: (state, action) => {
+            state.search = { ...action.payload }
+        },
+
         resetConfig: (state) => {
             state.isSetUp = false
             localStorage.removeItem('config')
@@ -50,4 +58,4 @@ export const configSlice = createSlice({
     }
 });
 
-export const { switchCategory, setConfig, resetConfig } = configSlice.actions;
+export const { switchCategory, setConfig, resetConfig, setSearch } = configSlice.actions;

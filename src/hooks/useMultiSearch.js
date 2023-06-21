@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { useLazyGetEverythingQuery } from "../store"
 import sources from '../assets/sample-data/sources.json'
 
-export const useMultiSearch = (searchType, query) => { // news, source, category
+export const useMultiSearch = (searchType, query, search) => { // news, source, category
 
     //TODO: refactor
 
@@ -30,7 +30,7 @@ export const useMultiSearch = (searchType, query) => { // news, source, category
     
     const getResults = async () => {
         
-        const res = await dataSource[searchType].getData({ q: query })
+        const res = await dataSource[searchType].getData({ q: query, ...search })
         const { data } = res
         setResults(data)
         setIsLoading(false)
@@ -39,7 +39,7 @@ export const useMultiSearch = (searchType, query) => { // news, source, category
     useEffect(() => {
         setIsLoading(true)
         getResults()
-    }, [searchType, query])
+    }, [searchType, query, search])
     
     return {
         results,
