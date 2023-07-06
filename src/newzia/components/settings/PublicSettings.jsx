@@ -6,8 +6,8 @@ import { useDispatch, useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom"
 import { ArrowLeftIcon, ArrowPathIcon } from "@heroicons/react/24/solid"
 import { InputCity } from "./InputCity"
-import countries from '../../../assets/sample-data/countries.json'
 import { resetConfig, setConfig } from "../../../store"
+import countries from '../../../assets/sample-data/countries.json'
 
 export const PublicSettings = () => {
 

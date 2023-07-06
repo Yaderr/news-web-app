@@ -7,6 +7,7 @@ import { ArticlePage } from "../newzia/pages"
 import { useCheckAuth } from "../hooks"
 import logo from '../assets/newzia-logo.svg'
 import { useEffect } from "react"
+import { MyProfileRoutes } from "../newzia/router/MyProfileRoutes"
 
 
 export const AppRouter = () => {

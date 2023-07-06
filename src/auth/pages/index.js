@@ -1,2 +1,6 @@
 export * from './LoginPage'
 export * from './SignupPage'
+export * from './ForgetPasswordPage'
+export * from './AuthPage'
+export * from  './GoogleSignInPage'
+export * from './CompleteProfile'
