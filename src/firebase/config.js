@@ -1,6 +1,7 @@
 import { initializeApp } from "firebase/app";
 import { GoogleAuthProvider, getAuth } from 'firebase/auth'
 import { getFirestore } from 'firebase/firestore/lite'
+import { getFirestore as gft } from 'firebase/firestore'
 import { getStorage } from 'firebase/storage'
 
 const firebaseConfig = {
@@ -17,5 +18,6 @@ const firebaseConfig = {
 export const FirebaseApp = initializeApp(firebaseConfig)
 export const FirebaseAuth = getAuth(FirebaseApp)
 export const FirebaseDB = getFirestore(FirebaseApp)
+export const FirebaseDBFull = gft(FirebaseApp)
 export const googleProvider = new GoogleAuthProvider()
 export const FirebaseStorage = getStorage()

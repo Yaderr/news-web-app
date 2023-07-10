@@ -9,12 +9,7 @@ const opts = {
     redT: 'Minutos'
 }
 
-const metri = {
-    views: 2500,
-    likes: 100
-}
-
-export const ArticleCover = ({ articleOpts = opts, metrics = metri, article }) => {
+export const ArticleCover = ({ articleOpts = opts, metrics, article }) => {
 
     const navigate = useNavigate()
 
