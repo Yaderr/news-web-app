@@ -15,9 +15,10 @@ export const getUserDataLogin = async ({ uid, displayName, email, photoURL, user
         }
 
         const newUser = {
-            userName,
+            userName: userName ?? null,
             displayName,
-            photoURL: null,
+            uid,
+            photoURL: photoURL ?? null,
             coverPhoto: "",
             biography: "",
             siteLink: "",
@@ -43,7 +44,7 @@ export const updateProfile = async (user) => {
 
     try {
         const docRef = doc(FirebaseDB, `users/${user.uid}`)
-        await setDoc(docRef, user, { merge: true })
+        await setDoc(docRef, {userName: user.userName}, { merge: true })
         return {
             ok: true,
             data: user

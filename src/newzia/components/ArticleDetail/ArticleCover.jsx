@@ -9,7 +9,7 @@ const opts = {
     redT: 'Minutos'
 }
 
-export const ArticleCover = ({ articleOpts = opts, metrics, article }) => {
+export const ArticleCover = ({ articleOpts = opts, metrics, article, isLoading }) => {
 
     const navigate = useNavigate()
 
@@ -34,23 +34,27 @@ export const ArticleCover = ({ articleOpts = opts, metrics, article }) => {
                     </div>
                 </div>
                 <div className="py-[30px] md:py-[40px] space-y-5">
-                    <div className="">
+                    {/* <div className="">
                         <span className="inline-block px-3 py-2 bg-lynch rounded-full font-medium text-white text-xs">Destacado</span>
                         <span className="font-medium text-white text-xs ml-2">{articleOpts.readTime} {articleOpts.redT} de lectura &#x2022; { new Date(article.publishedAt).toDateString() }</span>
-                    </div>
+                    </div> */}
                     <div className="whitespace-break-spaces">
                         <h1 className="text-white text-xl font-bold md:text-3xl line-clamp-[8]">{article.title}</h1>
                     </div>
-                    <div className="flex space-x-3">
-                        <div className="flex items-center space-x-1">
-                            <EyeIcon className="w-[16px] h-[16px] md:w-[20px] md:h-[20px] text-athens-gray" />
-                            <span className="text-white text-xs md:text-sm">{ Intl.NumberFormat('es-CO').format(metrics.views)}</span>
-                        </div>
-                        <div className="flex items-center space-x-1">
-                            <HandThumbUpIcon className="w-[16px] h-[16px] md:w-[20px] md:h-[20px] text-athens-gray" />
-                            <span className="text-white text-xs md:text-sm">{ Intl.NumberFormat('es-CO').format(metrics.likes)}</span>
-                        </div>
-                    </div>
+                    {
+                        (!isLoading) && (
+                            <div className="flex space-x-3">
+                                <div className="flex items-center space-x-1">
+                                    <EyeIcon className="w-[16px] h-[16px] md:w-[20px] md:h-[20px] text-athens-gray" />
+                                    <span className="text-white text-xs md:text-sm">{ Intl.NumberFormat('es-CO').format(metrics.views)}</span>
+                                </div>
+                                <div className="flex items-center space-x-1">
+                                    <HandThumbUpIcon className="w-[16px] h-[16px] md:w-[20px] md:h-[20px] text-athens-gray" />
+                                    <span className="text-white text-xs md:text-sm">{ Intl.NumberFormat('es-CO').format(metrics.likes)}</span>
+                                </div>
+                            </div>
+                        )
+                    }
                 </div>
             </div>
         </div>

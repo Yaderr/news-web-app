@@ -1,4 +1,4 @@
-import { collection, doc, getDoc, getDocs, increment, query, setDoc, updateDoc, where } from 'firebase/firestore/lite'
+import { collection, doc, getDoc, getDocs, increment, query, setDoc, updateDoc, where, deleteDoc, orderBy  } from 'firebase/firestore/lite'
 import { FirebaseDB } from '../config'
 import { getDoc as getFullDoc } from 'firebase/firestore'
 
@@ -9,6 +9,7 @@ export const getCommetsAndUsersFullDoc = async (commentsDocs) => {
         for (const doc of commentsDocs) {
             let comment = doc.data()
             const userDoc = await getFullDoc(comment.userRef)
+            comment.docId = doc.id
             comment.user = userDoc.data()
             comments.push(comment)
         }
@@ -26,6 +27,7 @@ export const getCommetsAndUsers = async (commentsDocs) => {
         for (const doc of commentsDocs) {
             let comment = doc.data()
             const userDoc = await getDoc(comment.userRef)
+            comment.docId = doc.id
             comment.user = userDoc.data()
             comments.push(comment)
         }
@@ -82,7 +84,7 @@ export const getArticleByOriginId = async (origin_id, article) => {
             articleIbu = newIbu
         }
                 
-        const IbuCommentsQuery = query(collection(FirebaseDB, `articles_ibu_comments`), where('article_ibu_docId', '==', articleIbu.docId))
+        const IbuCommentsQuery = query(collection(FirebaseDB, `articles_ibu_comments`), where('article_ibu_docId', '==', articleIbu.docId), orderBy('publishedAt', 'desc'))
         const IbuCommentsDocs = await getDocs(IbuCommentsQuery)
         
         
@@ -107,12 +109,12 @@ export const saveComment = async (userUid, content, article_ibu_docId) => {
 
     try {
         const userRef = doc(FirebaseDB, `users/${userUid}`)
-        const docRef = doc(collection(FirebaseDB, 'articles_ibu_comments')) 
+        const docRef = doc(collection(FirebaseDB, 'articles_ibu_comments'))
 
         const comment = {
             article_ibu_docId,
             content,
-            publishedAt: new Date().toDateString(),
+            publishedAt: new Date().getTime(),
             userRef
         }
 
@@ -120,5 +122,14 @@ export const saveComment = async (userUid, content, article_ibu_docId) => {
 
     } catch(error) {
         console.log(error)
+    }
+}
+
+export const removeComment = async (docId) => {
+    try {
+        const docRef = doc(FirebaseDB, `articles_ibu_comments/${docId}`)
+        await deleteDoc(docRef)
+    } catch(error) {
+        console.log(error);
     }
 }

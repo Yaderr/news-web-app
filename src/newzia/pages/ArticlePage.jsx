@@ -1,8 +1,8 @@
 import { ScrollRestoration, useLocation } from "react-router-dom";
 import { ArticleBody, ArticleCover, Comments, InputComment, SourceFollow, TopicsTags } from "../components";
 import { ContainerLayoult } from "../components/ContainerLayoult";
-import { comments } from '../../assets/sample-data/comments'
 import { useArticlesIbu } from "../../hooks";
+import { CommentsLoader } from "../loaders/article/CommentsLoader";
 
 const getArticleId = (article) => {
     return `${article.title.replaceAll(' ', '_')}_${new Date(article.publishedAt).getTime()}_${article.source.name.replaceAll(' ', '_')}`
@@ -29,7 +29,7 @@ export const ArticlePage = () => {
                             <InputComment ibuDocId={data.docId} />
                         </>
                     )
-                    : <h1>Cargando...</h1>
+                    : <CommentsLoader />
                 }
                 {/* TODO: <LikeButton /> */}
             </ContainerLayoult>
