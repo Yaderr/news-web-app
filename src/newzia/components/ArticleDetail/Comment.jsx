@@ -64,7 +64,7 @@ export const Comment = ({ userName, photoURL,  content, replies, displayName, pu
     return (
         <div className="flex space-x-3 my-5 select-none hover:bg-athens-gray/50 hover:rounded-[30px] p-2">
             <div className="max-w-[45px] min-w-[45px] md:min-w-[60px]">
-                <a href={`/user/${userName}`}>
+                <a href={`/u/${userName}`}>
                     {
                         photoURL ? <img className="rounded-full w-full h-[45px] md:h-[60px] object-cover" src={ photoURL } alt="" />
                         :<div className="bg-blue-vogue w-full h-[45px] md:h-[60px] rounded-full uppercase flex items-center justify-center font-semibold text-white text-2xl">{displayName.split('')[0]}</div>
@@ -73,7 +73,7 @@ export const Comment = ({ userName, photoURL,  content, replies, displayName, pu
             </div>
             <div className="w-full">
                 <div className="flex justify-between w-full">
-                    <a className="text-sm font-bold text-blue-vogue md:text-lg" href={`/user/${userName}`}>
+                    <a className="text-sm font-bold text-blue-vogue md:text-lg" href={`/u/${userName}`}>
                         {displayName}
                     </a>
                     {

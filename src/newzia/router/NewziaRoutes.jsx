@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router-dom"
-import { HomePage, ArticlePage, ExplorePage, SavedPage, SettingsPage } from "../pages/"
+import { HomePage, ArticlePage, ExplorePage, SavedPage, SettingsPage, UserPage } from "../pages/"
 import { NavBar } from "../components"
 import { PrivateRoutes } from '../../router/PrivateRoutes'
 import { MyProfileRoutes } from "./MyProfileRoutes"
@@ -14,6 +14,7 @@ export const NewziaRoutes = () => {
                 <Route path="/" element={ <HomePage />} />
                 <Route path="/explore/*" element={ <ExplorePage /> } />
                 <Route path="/saved" element={ <SavedPage /> } />
+                <Route path="/u/:userName" element={ <UserPage /> } />
                 <Route path="/settings/*" element={ 
                     <PrivateRoutes>
                         <SettingsPage />

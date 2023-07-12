@@ -1,4 +1,4 @@
-import { doc, getDoc, setDoc } from 'firebase/firestore/lite'
+import { doc, getDoc, query, setDoc, collection, where, getDocs } from 'firebase/firestore/lite'
 import { FirebaseDB } from '../config'
 
 export const getUserDataLogin = async ({ uid, displayName, email, photoURL, userName }) => {
@@ -45,6 +45,24 @@ export const updateProfile = async (user) => {
     try {
         const docRef = doc(FirebaseDB, `users/${user.uid}`)
         await setDoc(docRef, {userName: user.userName}, { merge: true })
+        return {
+            ok: true,
+            data: user
+        }
+    } catch(error) {
+        console.log(error)
+        return {
+            ok: false,
+            error
+        }
+    }
+}
+
+export const getUserByUserName = async (userName) => {
+    try {
+        const docRef = query(collection(FirebaseDB, 'users'), where('userName', '==', userName))
+        const userDoc = await getDocs(docRef)
+        const user = userDoc.docs[0].data()
         return {
             ok: true,
             data: user

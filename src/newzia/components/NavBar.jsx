@@ -58,14 +58,14 @@ export const NavBar = () => {
                                             <>
                                                 <div className="w-[30px] h-[30px] outline-icon">
                                                     {
-                                                        photoURL ? <img className="w-full h-full rounded-full ring-2 ring-transparent" src={photoURL} alt={displayName} />
+                                                        photoURL ? <img className="w-full h-full rounded-full ring-2 ring-transparent object-cover" src={photoURL} alt={displayName} />
                                                         : <div className="bg-blue-vogue w-full h-full rounded-full uppercase flex items-center justify-center font-semibold text-white text-md">{displayName.split('')[0]}</div>
                                                         
                                                     }
                                                 </div>
                                                 <div className="w-[30px] h-[30px] solid-icon">
                                                     {
-                                                        photoURL ? <img className="w-full h-full rounded-full ring-2 ring-red-ribbon" src={photoURL} alt={displayName} />
+                                                        photoURL ? <img className="w-full h-full rounded-full ring-2 ring-red-ribbon object-cover" src={photoURL} alt={displayName} />
                                                         : <div className="bg-blue-vogue w-full h-full rounded-full uppercase flex items-center justify-center font-semibold text-white text-md ring-2 ring-red-ribbon">{displayName.split('')[0]}</div>
                                                     }
                                                 </div>

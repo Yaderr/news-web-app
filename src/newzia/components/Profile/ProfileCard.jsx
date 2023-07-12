@@ -1,20 +1,36 @@
 import { Cog6ToothIcon, LinkIcon, TrashIcon, PencilIcon } from '@heroicons/react/24/outline'
+import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { ProfileData } from './ProfileData'
 
 export const ProfileCard = ({ biography, siteLink }) => {
 
+    const ref = useRef()
+    const [isHidden, setIsHidden] = useState(true)
+    const [showMore, setShowMore] = useState(false)
+
+    useEffect(() => {
+        if(ref.current.scrollHeight > 80) {
+            setShowMore(true)
+        }
+    }, [])
+
+    const onShowHiddenPart = () => {
+        setIsHidden(!isHidden)
+    }
+
     return (
-        <div className="flex flex-col mt-5">
-            <ProfileData />
+        <div className="flex flex-col">
             <div className="mt-5">
-                <p className="text-sm text-lynch">
+                <p ref={ref} className={`text-sm text-lynch ${isHidden && 'line-clamp-4'}`}>
                     {
                         biography 
                         ? biography 
                         : ''
                     }
                 </p>
+                {
+                    showMore && <a className="text-sm text-blue-vogue mt-2 hover:underline hover:cursor-pointer font-medium" onClick={onShowHiddenPart}>{isHidden ? 'Ver más': 'Ver menos'}</a>
+                }
                 <div className="mt-5">
                     <a className="text-red-ribbon text-sm inline-flex" href={siteLink} target="_blank" rel="noopener noreferrer">
                         <LinkIcon className='h-[20px] mr-2' />

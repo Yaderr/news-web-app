@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux"
 import { ContainerLayoult } from "../components/ContainerLayoult"
 import { Cog6ToothIcon, TrashIcon } from '@heroicons/react/24/outline'
-import { ProfileCard } from "../components"
+import { ProfileCard, ProfileData } from "../components"
 import { Link } from "react-router-dom"
 
 export const MyProfilePage = () => {
@@ -24,7 +24,10 @@ export const MyProfilePage = () => {
                     </Link>
                 </div>
             </div>
+            <div className="mt-5">
+                <ProfileData />
                 <ProfileCard biography={biography} siteLink={siteLink} />
+            </div>
         </ContainerLayoult>
     )
 }
