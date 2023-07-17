@@ -8,24 +8,30 @@ export const bookmarksSlice = createSlice({
 
         return {
             articles,
-            articlesSaved: articles.map(article => ({...article, isSaved: true}))
+            articlesSaved: articles.map(article => ({...article.article, isSaved: true, docId: article.docId}))
         }
     },
     reducers: {
         addNewArticle: (state, action) => {
 
-            state.articles.push(action.payload)
-            state.articlesSaved.push({...action.payload, isSaved: true})
+            state.articles.push({docId: action.payload.docId, article: {...action.payload.article}})
+            state.articlesSaved.push({docId: action.payload.docId, ...action.payload.article, isSaved: true})
         },
         deleteArticle: (state, action) => {
-            
-            state.articles = current(state.articles).filter(article => JSON.stringify(article) !== JSON.stringify(action.payload))
+            console.log( current(state.articlesSaved));
+            state.articles = current(state.articles).filter(article => JSON.stringify(article.article) !== JSON.stringify(action.payload))
             state.articlesSaved = current(state.articlesSaved).filter(article => {
                 const compareArticle = {...article}
                 delete compareArticle.isSaved
+                delete compareArticle.docId
                 return JSON.stringify(compareArticle) !== JSON.stringify(action.payload)
             }
             )
+        },
+        addAllArticles: (state, action) => {
+            action.payload.forEach((bookMark) => {
+                bookmarksSlice.caseReducers.addNewArticle(state, {payload: bookMark})
+            })
         },
         deleteAll: (state) => {
             state.articles = []
@@ -34,4 +40,4 @@ export const bookmarksSlice = createSlice({
     }
 });
 
-export const { addNewArticle, deleteArticle, deleteAll } = bookmarksSlice.actions;
+export const { addNewArticle, deleteArticle, addAllArticles, deleteAll } = bookmarksSlice.actions;

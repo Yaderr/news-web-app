@@ -4,7 +4,7 @@ import { AdjustmentsVerticalIcon, ArrowLeftIcon, ArrowRightOnRectangleIcon } fro
 import { ContainerLayoult } from "../components/ContainerLayoult"
 import { ProfileData } from "../components"
 import { useDispatch } from "react-redux"
-import { logOut } from "../../store"
+import { deleteAll, logOut } from "../../store"
 
 export const SettingsPage = () => {
 
@@ -17,6 +17,7 @@ export const SettingsPage = () => {
 
     const onLogOut =  () => {
         dispatch(logOut())
+        dispatch(deleteAll())
     }
 
     return (

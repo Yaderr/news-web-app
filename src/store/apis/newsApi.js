@@ -44,7 +44,9 @@ export const newsApi = createApi({
                 if(!favorites) return response
 
                 response.articles = response.articles.map((article) => {
-                    const is = favorites.some((favorite) => JSON.stringify(article) === JSON.stringify(favorite))
+                    const is = favorites.some((favorite) => {
+                        return JSON.stringify(article) === JSON.stringify(favorite.article)
+                    })
                     if(is) return { ...article, isSaved: true }
                     return {...article, isSaved: false}
                 })

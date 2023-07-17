@@ -83,6 +83,7 @@ export const authSlice = createSlice({
             state.photoURL = null
 
             localStorage.removeItem('auth')
+            localStorage.removeItem('bookmarks')
         },
         setLoginin: (state) => {
             state.status = 'loginin'

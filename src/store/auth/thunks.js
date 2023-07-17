@@ -1,16 +1,25 @@
 import { LoginPage } from "../../auth/pages"
-import { loginWithEmailPassword, signInWithGoogle, signUpWithEmailPassword, updateProfile } from "../../firebase"
+import { getAllBookMarks, loginWithEmailPassword, signInWithGoogle, signUpWithEmailPassword, updateProfile } from "../../firebase"
+import { addAllArticles } from "../bookmarks"
 import { logOut, login, setLoginin } from "./authSlice"
+
+const InitializeBookmarks = async (uid, dispatch, getState) => {
+    const bookmarks = await getAllBookMarks(uid)
+    dispatch(addAllArticles(bookmarks))
+    const { articles } = getState().bookmarks
+    localStorage.setItem('bookmarks', JSON.stringify({articles}))
+}
 
 export const startSignInWithGoogle = () => {
 
-    return async (dispatch) => {
+    return async (dispatch, getState) => {
         
         dispatch(setLoginin())
         const signInResponse = await signInWithGoogle()
         if(!signInResponse.ok) return dispatch(logOut(signInResponse.error.message))
-        console.log(signInResponse);
-
+        
+        await InitializeBookmarks(signInResponse.uid, dispatch, getState)
+        
         dispatch(login(signInResponse))
     }
 }
@@ -41,12 +50,12 @@ export const startSignupEmailPassword = (email, password, userName, displayName)
 
 export const startLogin = (email, password) => {
 
-    return async (dispatch) => {
+    return async (dispatch, getState) => {
         dispatch(setLoginin())
         const loginResult = await loginWithEmailPassword(email, password)
         
         if(!loginResult.ok) return dispatch(logOut(loginResult.error.message))
-
+        await InitializeBookmarks(loginResult.uid, dispatch, getState)
         dispatch(login(loginResult))
     }
 }
