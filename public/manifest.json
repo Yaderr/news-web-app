@@ -1,0 +1,47 @@
+{
+    "short_name": "Newzia",
+    "name": "Newzia: a newsapi.org client",
+    "icons": [
+      {
+        "src": "./pwa/images/android-launchericon-512-512.png",
+        "sizes": "512x512"
+      },
+      {
+        "src": "./pwa/images/android-launchericon-192-192.png",
+        "sizes": "192x192"
+      },
+      {
+        "src": "./pwa/images/android-launchericon-144-144.png",
+        "sizes": "144x144"
+      },
+      {
+        "src": "./pwa/images/android-launchericon-96-96.png",
+        "sizes": "96x96"
+      },
+      {
+        "src": "./pwa/images/android-launchericon-72-72.png",
+        "sizes": "72x72"
+      },
+      {
+        "src": "./pwa/images/android-launchericon-48-48.png",
+        "sizes": "48x48"
+      }
+    ],
+    "start_url": "/?source=pwa",
+    "background_color": "#ffffff",
+    "display": "standalone",
+    "scope": "/",
+    "theme_color": "#ffffff",
+    "shortcuts": [
+      {
+        "name": "Autenticar",
+        "short_name": "Auth",
+        "description": "Iniciar sessión, registrarse",
+        "url": "/auth?source=pwa",
+        "icons": [{ "src": "./pwa/images/icon-192.svg", "sizes": "192x192" }]
+      }
+    ],
+    "description": "React Web App Newzia newsapi.org client",
+    "screenshots": [
+    ]
+  }
